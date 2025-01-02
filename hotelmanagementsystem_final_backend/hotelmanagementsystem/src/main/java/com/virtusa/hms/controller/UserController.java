@@ -54,7 +54,7 @@ public class UserController {
 
 	@PostMapping("/register")
 	public ResponseEntity<Message> insertUserDetails(@Valid @RequestBody UserDto userDto) {
-		userDto.setRole(Role.ADMIN);
+		userDto.setRole(Role.USER);
 		String responseMessage = userService.insertUserDetails(userDto);
 		message.setMessage(responseMessage);
 		return ResponseEntity.status(HttpStatus.CREATED).body(message);

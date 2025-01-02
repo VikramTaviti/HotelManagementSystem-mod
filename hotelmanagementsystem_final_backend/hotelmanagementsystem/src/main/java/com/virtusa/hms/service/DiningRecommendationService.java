@@ -8,35 +8,16 @@ import com.virtusa.hms.utility.DiningRecommendationDto;
 
 public interface DiningRecommendationService {
 
-    String insertDiningRecommendationDetails(DiningRecommendationDto diningRecommendationDto) throws LocationAlreadyExistException;
+	public String insertDiningRecommendationDetails(DiningRecommendationDto diningRecommendationDto) throws LocationAlreadyExistException;
 
-    List<DiningRecommendationDto> getAllDiningRecommendations();
+	public String updateDiningRecommendationDetails(DiningRecommendationDto diningRecommendationDto);
 
-    DiningRecommendationDto getDiningRecommendationDetailsByDiningOptionId(String diningOptionId) throws DiningRecommendationNotFoundException;
+	public String deleteDiningRecommendationDetails(String diningOptionId);
 
-    String updateDiningRecommendationDetails(DiningRecommendationDto diningRecommendationDto);
+	public List<DiningRecommendationDto> getAllDiningRecommendations();
 
-    String deleteDiningRecommendationDetails(String diningOptionId);
+	public DiningRecommendationDto getDiningRecommendationDetailsByDiningOptionId(String diningOptionId);
 
-    List<DiningRecommendationDto> getAllDiningRecommendationsByStreetAndCity(String street, String city) throws DiningRecommendationNotFoundException;
+	public List<DiningRecommendationDto> getAllDiningRecommendationsByStreetAndCity(String street, String city) throws DiningRecommendationNotFoundException;
 
-    List<DiningRecommendationDto> findByCuisineType(String cuisineType) throws DiningRecommendationNotFoundException;
-
-    List<DiningRecommendationDto> findByPriceRange(String priceRange) throws DiningRecommendationNotFoundException;
-
-    List<DiningRecommendationDto> findByOutdoorSeatingAvailable() throws DiningRecommendationNotFoundException;
-
-    List<DiningRecommendationDto> findByParkingAvailable() throws DiningRecommendationNotFoundException;
-
-    List<DiningRecommendationDto> findByWifiAvailable() throws DiningRecommendationNotFoundException;
-
-    List<DiningRecommendationDto> findByReservationRequired(Boolean isReservationRequired) throws DiningRecommendationNotFoundException;
-
-    List<DiningRecommendationDto> findBySpecialFeature(String specialFeature) throws DiningRecommendationNotFoundException;
-
-    List<DiningRecommendationDto> findByOperatingHours(String operatingHours) throws DiningRecommendationNotFoundException;
-
-    List<DiningRecommendationDto> findByMinCapacity(Integer minCapacity) throws DiningRecommendationNotFoundException;
-
-    List<DiningRecommendationDto> findByMinRating(Double minRating) throws DiningRecommendationNotFoundException;
 }

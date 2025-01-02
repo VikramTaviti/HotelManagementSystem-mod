@@ -40,20 +40,17 @@ public class Hotel {
 	private String hotelImage;
 	
 	@Column(name = "hotel_description", length = 1000) // New column
-	private String hotelDescription;
-	
-	@Column(name = "hotel_address") // New column
-	private String hotelAddress;
+	private String hotelDescription; // New field
 	
 	@OneToOne
 	@JoinColumn(name = "location_id")
 	@JsonBackReference
 	private Location location;
 	
-	@OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "hotel",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	private List<Review> review;
 	
-	@OneToMany(mappedBy = "hotel", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy="hotel", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Room> rooms;
 	
 	@ManyToMany(mappedBy = "hotel", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -139,6 +136,7 @@ public class Hotel {
 	public void setHotelPhone(String hotelPhone) {
 		this.hotelPhone = hotelPhone;
 	}
+	
 
 	public Double getOverAllRating() {
 		return overAllRating;
@@ -148,6 +146,7 @@ public class Hotel {
 		this.overAllRating = overAllRating;
 	}
 
+	// Getter and Setter for the new field
 	public String getHotelDescription() {
 		return hotelDescription;
 	}
@@ -156,19 +155,10 @@ public class Hotel {
 		this.hotelDescription = hotelDescription;
 	}
 
-	public String getHotelAddress() {
-		return hotelAddress;
-	}
-
-	public void setHotelAddress(String hotelAddress) {
-		this.hotelAddress = hotelAddress;
-	}
-
 	@Override
 	public String toString() {
 		return "Hotel [hotelId=" + hotelId + ", hotelName=" + hotelName + ", hotelEmail=" + hotelEmail + ", hotelPhone="
-				+ hotelPhone + ", overAllRating=" + overAllRating + ", hotelImage=" + hotelImage + ", hotelDescription="
-				+ hotelDescription + ", hotelAddress=" + hotelAddress + ", location=" + location + ", review=" + review
-				+ ", rooms=" + rooms + ", services=" + services + "]";
+				+ hotelPhone + ", hotelDescription=" + hotelDescription + ", location=" + location + ", review=" + review + ", rooms=" + rooms
+				+ ", services=" + services + "]";
 	}
 }
